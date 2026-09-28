@@ -1,0 +1,356 @@
+/* 1. Base e cores compartilhadas (telas pequenas) */
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #263244;
+  background: #f5f7fa;
+  line-height: 1.5;
+  --cor-primaria: #2456a6;
+  --cor-borda: #d8dee8;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+/* 2. Estrutura e tipografia */
+main,
+.conteudo-cabecalho {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+main {
+  padding: 24px 16px;
+}
+
+h1,
+h2,
+h3 {
+  color: #1d2939;
+  line-height: 1.2;
+}
+
+main > h2 {
+  margin: 0 0 24px;
+  font-size: clamp(1.6rem, 4vw, 2rem);
+}
+
+h2,
+h3 {
+  margin: 0 0 16px;
+  font-size: 1.2rem;
+}
+
+/* 3. Links e foco de teclado */
+a {
+  color: var(--cor-primaria);
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  color: #173d7b;
+}
+
+:where(a, button, input, textarea, select, [tabindex]):focus-visible {
+  outline: 3px solid var(--cor-primaria);
+  outline-offset: 3px;
+}
+
+/* 4. Navegação e ações */
+/* Estrutura comum dos grupos de links e botões. */
+.navegacao-principal ul,
+.barra-acoes,
+.menu,
+.acoes-dialogo {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.navegacao-principal ul,
+.menu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Superfícies com o mesmo fundo, borda e arredondamento. */
+.menu a,
+.area-tabela,
+form,
+.dialogo-exclusao {
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px;
+  background: white;
+}
+
+.cabecalho {
+  background: white;
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.conteudo-cabecalho {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px 16px;
+}
+
+.marca {
+  margin: 0;
+  align-self: flex-start;
+  font-size: 1.25rem;
+}
+
+.marca a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.navegacao-principal ul {
+  gap: 8px;
+}
+
+.navegacao-principal a {
+  display: block;
+  padding: 10px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.navegacao-principal a:hover,
+.navegacao-principal a.ativo {
+  background: #edf3fc;
+  color: #173d7b;
+}
+
+.navegacao-principal a.ativo {
+  font-weight: bold;
+}
+
+.barra-acoes {
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.botao,
+button {
+  display: inline-block;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 10px 18px;
+  min-height: 44px;
+  background: var(--cor-primaria);
+  color: white;
+  font: inherit;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.botao:hover,
+button:hover {
+  background: #173d7b;
+  color: white;
+}
+
+.botao-secundario {
+  background: white;
+  color: #263244;
+  border-color: var(--cor-borda);
+}
+
+.botao-secundario:hover {
+  background: #edf1f6;
+  color: #263244;
+}
+
+.botao-perigo {
+  background: #b42318;
+}
+
+.botao-perigo:hover {
+  background: #831b13;
+}
+
+/* 5. Menu inicial */
+.menu {
+  gap: 16px;
+}
+
+.menu li {
+  flex: 1 1 220px;
+}
+
+.menu a {
+  display: block;
+  padding: 24px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.menu a:hover {
+  border-color: var(--cor-primaria);
+  background: #edf3fc;
+}
+
+/* 6. Tabelas: rolagem horizontal quando o conteúdo não couber */
+.area-tabela {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+caption {
+  padding: 16px;
+  text-align: left;
+  font-weight: bold;
+}
+
+th,
+td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+th {
+  background: #edf1f6;
+  font-size: 0.875rem;
+}
+
+tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+tbody tr:nth-child(even) {
+  background: #fafbfd;
+}
+
+tbody tr:hover {
+  background: #f0f5fc;
+}
+
+td {
+  overflow-wrap: anywhere;
+}
+
+td:last-child {
+  white-space: nowrap;
+}
+
+td a {
+  display: inline-block;
+  padding: 8px 0;
+}
+
+td a + a {
+  margin-left: 16px;
+}
+
+a.excluir {
+  color: #b42318;
+}
+
+a.excluir:hover {
+  color: #831b13;
+}
+
+/* 7. Formulários */
+.mensagem-erro {
+  padding: 12px 16px;
+  border: 1px solid #b42318;
+  border-radius: 6px;
+  background: #fff3f2;
+  color: #831b13;
+}
+
+form {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 0 20px;
+  padding: 20px 16px;
+  box-shadow: 0 2px 8px rgb(29 41 57 / 4%);
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #9daabc;
+  border-radius: 6px;
+  margin-bottom: 18px;
+  background: white;
+  color: inherit;
+  font: inherit;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* 8. Diálogo de confirmação */
+.dialogo-exclusao {
+  width: calc(100% - 32px);
+  max-width: 440px;
+  padding: 24px;
+  color: inherit;
+  box-shadow: 0 16px 48px rgb(29 41 57 / 20%);
+}
+
+.dialogo-exclusao::backdrop {
+  background: rgb(29 41 57 / 55%);
+}
+
+.dialogo-exclusao p {
+  margin: 0 0 24px;
+}
+
+.acoes-dialogo {
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+/* 9. Telas maiores: amplia os espaçamentos da base mobile */
+@media (min-width: 600px) {
+  .conteudo-cabecalho {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+  }
+
+  .marca {
+    align-self: auto;
+  }
+
+  main {
+    padding: 40px 24px;
+  }
+  form {
+    padding: 24px;
+  }
+  th,
+  td {
+    padding: 12px 16px;
+  }
+  .menu li {
+    max-width: 340px;
+  }
+
+}
