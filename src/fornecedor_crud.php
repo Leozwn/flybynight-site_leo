@@ -16,3 +16,11 @@ function buscarFornecedores(PDO $conexao): array {
     // Retornando o resultado como um array associativo
     return $consulta->fetchAll();
 };
+
+// Usada em fornecedores/inserir.php
+function inserirFornecedor(PDO $conexao, string $nome):void {
+    $sql = "INSERT IINTO fornecedores (nome) VALUES(:nome)";
+    $consulta = $conexao->prepare($sql);
+    $consulta->bindValue(":nome", $nome);
+    $consulta->execute();
+};

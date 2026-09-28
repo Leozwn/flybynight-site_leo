@@ -5,7 +5,6 @@ require_once "../src/fornecedor_crud.php";
 // chamando a função 
 $fornecedores = buscarFornecedores($conexao);
 
-var_dump($fornecedores);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -38,7 +37,14 @@ var_dump($fornecedores);
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Aqui serão geradas as linhas com os dados e as ações Editar e Excluir de cada registro. -->
+
+                <?php foreach($fornecedores as $fornecedor): ?>
+                    <tr>
+                        <td> <?=   $fornecedor["id"] ?></td>
+                        <td> <?=   $fornecedor["nome"] ?></td>
+                    </tr>
+                <?php endforeach; ?>
+                
                 </tbody>
             </table>
         </div>
