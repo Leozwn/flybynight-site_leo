@@ -1,3 +1,12 @@
+<?php
+// importando o arqv
+require_once "../src/fornecedor_crud.php";
+
+// chamando a função 
+$fornecedores = buscarFornecedores($conexao);
+
+var_dump($fornecedores);
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 

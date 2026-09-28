@@ -32,5 +32,4 @@ try {
     exit("Não foi possível conectar ao banco.");
 }
 
-// Teste 
-var_dump($conexao);
+

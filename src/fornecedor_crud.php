@@ -8,7 +8,7 @@ require_once "conecta.php";
 function buscarFornecedores(PDO $conexao): array {
     
     // comando SQL p/ consulta
-    $sql = "SELECT * FROM forncedores ORDER BY nome";
+    $sql = "SELECT * FROM fornecedores ORDER BY nome";
 
     // Executando o comando e guardando o resultado da consulta/query/smtmt
     $consulta = $conexao->query($sql);
