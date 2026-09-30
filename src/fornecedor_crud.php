@@ -37,4 +37,4 @@ function buscarFornecedorPorId(PDO $conexao, int $id)
     $consulta->execute();
 
     return $consulta->fetch();
-}
+};

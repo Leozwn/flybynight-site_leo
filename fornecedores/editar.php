@@ -1,8 +1,13 @@
 <?php
 // Forncedores/editar.php
-
+require_once "../src/fornecedor_crud.php";
 // Acessar a URL e "pegar" o valor do parâmentro (id) existente nela
 $id = $_GET['id'];
+
+// chamar função, ao termino , função devolve um array com os dados do fornecedor
+$fornecedor = buscarFornecedorPorId($conexao, $id);
+
+var_dump($fornecedor);
 ?>  
 <!DOCTYPE html>
 <html lang="pt-br">
