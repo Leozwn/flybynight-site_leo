@@ -19,8 +19,22 @@ function buscarFornecedores(PDO $conexao): array {
 
 // Usada em fornecedores/inserir.php
 function inserirFornecedor(PDO $conexao, string $nome):void {
-    $sql = "INSERT IINTO fornecedores (nome) VALUES(:nome)";
+    $sql = "INSERT INTO fornecedores (nome) VALUES(:nome)";
     $consulta = $conexao->prepare($sql);
     $consulta->bindValue(":nome", $nome);
     $consulta->execute();
 };
+
+// Usada em fornecedores/editar.php
+function buscarFornecedorPorId(PDO $conexao, int $id)
+{
+    $sql = "SELECT * FROM fornecedores WHERE id = :id;";
+
+    $consulta = $conexao->prepare($sql);
+
+    $consulta->bindValue(":id", $id);
+
+    $consulta->execute();
+
+    return $consulta->fetch();
+}
