@@ -16,7 +16,7 @@ function buscarLojas(PDO $conexao): array
     $consulta = $conexao->query($sql);
 
     return $consulta->fetchAll();
-};
+}
 
 // inserir
 function inserirLoja(PDO $conexao, string $nome): void
@@ -28,7 +28,7 @@ function inserirLoja(PDO $conexao, string $nome): void
     $consulta->bindValue(":nome", $nome);
 
     $consulta->execute();
-};
+}
 
 //buscarID
 function buscarLojaPorId(PDO $conexao, int $id): array
@@ -42,7 +42,7 @@ function buscarLojaPorId(PDO $conexao, int $id): array
     $consulta->execute();
 
     return $consulta->fetch();
-};
+}
 
 // atualizar
 function atualizarLoja(PDO $conexao, int $id, string $nome): void
@@ -55,9 +55,9 @@ function atualizarLoja(PDO $conexao, int $id, string $nome): void
     $consulta->bindValue(":id", $id);
 
     $consulta->execute();
-};
+}
 
-// Excluir 
+// excluir 
 function excluirLoja(PDO $conexao, int $id): void
 {
     $sql = "DELETE FROM lojas WHERE id = :id";
@@ -67,4 +67,4 @@ function excluirLoja(PDO $conexao, int $id): void
     $consulta->bindValue(":id", $id);
 
     $consulta->execute();
-};
+}
