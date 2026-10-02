@@ -68,3 +68,4 @@ function excluirLoja(PDO $conexao, int $id): void
 
     $consulta->execute();
 }
+
