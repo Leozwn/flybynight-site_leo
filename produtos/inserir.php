@@ -23,7 +23,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
     inserirProduto($conexao, $nome, $descricao, $preco, $quantidade, $fornecedor);
     // 4) Redirecionar para a página que mostra os produtos
     header("location:listar.php");
-    exit;
+    exit; 
 }
 
 // 5) Cadastre pelo menos 3 produtos (invente os dados)
