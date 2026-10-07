@@ -1,3 +1,16 @@
+<?php
+// produto/editar.php
+
+/* Exrcicios */
+// 1) importar os arquivos de função de forcedores e produtos
+
+// 2) capturar e guardar o id do produto que será carregado/atualizado
+
+// 3) chamar a função buscarFornecedores e receber a lista de forncedores
+
+// 4) chamar a função buscarProdutoPorId e receber os dados do produto
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
