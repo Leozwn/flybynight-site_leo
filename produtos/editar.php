@@ -5,6 +5,7 @@ require_once "../src/fornecedor_crud.php";
 require_once "../src/produto_crud.php";
 
 /* Exercícios:
+PARTE 1 (feito)
 1) importar os arquivos de função de fornecedores e produtos
 2) capturar e guardar o id do produto que será carregado/atualizado
 3) chamar a função buscarFornecedores e receber a lista de fornecedores
@@ -13,6 +14,17 @@ require_once "../src/produto_crud.php";
 6) desafio
    6.1) usando foreach, acesse os $fornecedores e mostre a tag <option> com os nomes de cada fornecedor
    6.2) o fornecedor daquele produto que está sendo exibido deve vir selecionado
+
+PARTE 2 (feito)
+ 1) Dectectar o acionamento do formulário de atualização
+
+ 2) Capturar os dados do formulário
+
+ 3) Chamar a função atualizarProduto e passar os dados pra ela
+
+ 4) Redirecionar para a página listar produtos
+
+ 5) Testar: tente atualizar dados de pelo menos 3 produtos
 */
 // ex 2 peguei algumas na IA dessa tambem
 $id = $_GET['id'] ?? null;
