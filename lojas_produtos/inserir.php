@@ -10,6 +10,7 @@ $lojaSelecionada = '';
 $produtoSelecionado = '';
 $estoqueInformado = '';
 
+// auxilio IA
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $lojaId = filter_var($_POST['loja_id'] ?? '', FILTER_VALIDATE_INT);
     $produtoId = filter_var($_POST['produto_id'] ?? '', FILTER_VALIDATE_INT);
