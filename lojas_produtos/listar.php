@@ -1,3 +1,8 @@
+<?php
+// 
+require_once "/loja_produto_crud.php";
+$lojasProdutos = buscarLojasProdutos($conexao);
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -18,7 +23,6 @@
         <h2>Produtos por loja</h2>
         <p>Gerencie os vínculos e o estoque de cada produto nas lojas. A exclusão remove somente o vínculo.</p>
         <div class="barra-acoes"><a class="botao" href="inserir.php">+ Novo vínculo</a></div>
-        <!-- Os registros serão carregados dinamicamente quando o back-end for implementado. -->
         <div class="area-tabela" tabindex="0">
             <table>
                 <caption>Relação de Produtos por loja</caption>
@@ -27,11 +31,22 @@
                         <th scope="col">Loja</th>
                         <th scope="col">Produto</th>
                         <th scope="col">Estoque</th>
-                        <th scope="col">Ações</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Aqui serão geradas as linhas com os dados e as ações Editar e Excluir de cada registro. -->
+                    <?php if ($lojasProdutos === []): ?>
+                        <tr>
+                            <td colspan="3">Nenhum produto vinculado a uma loja.</td>
+                        </tr>
+                    <?php else: ?>
+                        <?php foreach ($lojasProdutos as $vinculo): ?>
+                            <tr>
+                                <td><?= htmlspecialchars($vinculo['nome_loja'], ENT_QUOTES, 'UTF-8') ?></td>
+                                <td><?= htmlspecialchars($vinculo['nome_produto'], ENT_QUOTES, 'UTF-8') ?></td>
+                                <td><?= (int) $vinculo['estoque'] ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
                 </tbody>
             </table>
         </div>
